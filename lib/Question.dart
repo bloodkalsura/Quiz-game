@@ -9,8 +9,16 @@ class Question{
     if(b==true)
       print("You've chosen True as your answer");
     else
-      print("You've chosen False as your answer");
-      
-      
+      print("You've chosen False as your answer");  
+  try {
+  for (var object in flybyObjects) {
+    var description = await File('$object.txt').readAsString();
+    print(description);
+  }
+} on IOException catch (e) {
+  print('Could not describe object: $e');
+} finally {
+  flybyObjects.clear();
+}
   }
 }
